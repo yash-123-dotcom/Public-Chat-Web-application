@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NeonChat - Real-time Chat Application</title>
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHKeiUhK54oYf5OAXx5qIrXCpg8bF0-KYLNA&s" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-header">
+        <div class="logo">
+            <i class="fas fa-bolt neon-icon"></i>
+            <h1>NeonChat</h1>
+        </div>
+        <div class="header-subtitle">Real-time Messaging</div>
+    </div>
+
+    <div class="container">
+        <div class="chat-section">
+            <div id="login-form">
+                <h2>Join Chat Room</h2>
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Enter your username">
+                </div>
+                <button onclick="joinChat()">
+                    <i class="fas fa-sign-in-alt"></i> Join Chat
+                </button>
+            </div>
+
+            <div id="chat-container" style="display: none;">
+                <div id="messages"></div>
+                <div class="message-input-container">
+                    <input type="text" id="message" placeholder="Type your message...">
+                    <button onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="user-list">
+            <h3><i class="fas fa-users"></i> Online Users</h3>
+            <div id="users"></div>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        <p>NeonChat © 2024 | Made with <i class="fas fa-heart"></i></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
